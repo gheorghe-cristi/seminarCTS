@@ -1,6 +1,7 @@
 package pachet1;
 
 import clase.Girafa;
+import clase.Zebra;
 import clase.Zoo;
 
 public class Program {
@@ -13,7 +14,12 @@ public class Program {
 	zoo.AdaugaAnimal(g1);
 	zoo.AdaugaAnimal(g2);
 	
-	zoo.FeedAnimals();
+	Zebra z1 = new Zebra("z1");
+	Zebra z2 = new Zebra("z2");
+	zoo.AdaugaAnimal(z1);
+	zoo.AdaugaAnimal(z2);
+	
+	zoo.FeedAllAnimals();
 	
 	}
 }
