@@ -5,8 +5,11 @@ import java.util.Arrays;
 public class Student extends Aplicant {
 	protected String facultate;
 	protected int an_studii;
-	private static float sumaFinantare = 20;
+	private static float sumaFinantare = 30;
 	
+	public static float getSumaFinantare() {
+		return sumaFinantare;
+	}
 	
 	public String getFacultate() {
 		return facultate;
@@ -45,9 +48,12 @@ public class Student extends Aplicant {
 		this.facultate = facultate;
 		this.an_studii = an_studii;
 	}
+	
 	@Override
 	public String toString() {
-		return "Student: Nume=" + nume + ", Prenume=" + prenume + ", Varsta=" + varsta + ", Punctaj=" + punctaj + ", Nr_proiecte=" + nr_proiecte +  ", DenumireProiect=" + Arrays.toString(denumiriProiecte) + "Facultate=" + facultate + ", An_studii=" + an_studii ;
+			StringBuilder stringBuilder =new StringBuilder();
+			stringBuilder.append("Student: ").append(super.toString()).append("Facultate: ")
+			.append(facultate).append("An studii: ").append(an_studii);
+			return stringBuilder.toString();
 	}
-	
 }
