@@ -83,4 +83,42 @@ public class StudentTests {
 		student.adaugaNota(6);
 		assertFalse(student.areRestante());
 	}
+	
+	// JUnit 3
+	@Test
+	public void testGetNotaExceptie() {
+		Student student = new Student();
+		student.adaugaNota(5);
+		student.adaugaNota(7);
+		
+		try {
+			student.getNota(5);
+			fail("Nu trebuie sa ajunga aici. Metoda nu arunca exceptie.");
+		} catch (IndexOutOfBoundsException e) {
+			
+		}
+		catch (Exception e) {
+			fail("Metoda arunca o alta exceptie.");
+		}
+	}
+	
+	// JUnit4
+	@Test(expected = IndexOutOfBoundsException.class)
+	public void testGetNotaExceptieV4() {
+		Student student = new Student();
+		student.adaugaNota(5);
+		student.adaugaNota(7);
+		
+		student.getNota(5);
+	}
+	
+	// JUnit5 
+	/*@Test
+	public void testGetNotaExceptieV5() {
+		Student student = new Student();
+		student.adaugaNota(9);
+		student.adaugaNota(6);
+		
+		assertThrows(IndexOutOfBoundsException.class,() -> {student.getNota(5);});
+	}*/
 }
